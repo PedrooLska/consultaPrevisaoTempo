@@ -1,21 +1,21 @@
 <template>
-  <body :class="{ 'theme--dark': darkMode }">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-
-    <button @click="toggleDarkMode">CHEGUEI AQUII</button>
-    <router-view />
-  </body>
+  <div :class="{ 'theme--dark': darkMode }">
+    <Header
+      @getWeather="(value) => getWeather(value)"
+      @toggleDarkMode="toggleDarkMode"
+    />
+    <Card />
+  </div>
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
+import Card from "@/components/Card.vue";
+
 export default {
-  data() {
-    return {
-      nightMode: false,
-    };
+  components: {
+    Header,
+    Card,
   },
   computed: {
     darkMode() {
@@ -26,11 +26,20 @@ export default {
     toggleDarkMode() {
       this.$store.commit({ type: "toggleDarkMode" });
     },
+    getWeather(value) {
+      console.log(value);
+    },
   },
 };
 </script>
 
 <style lang="scss">
+body {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .theme--dark {
   background: black;
 }

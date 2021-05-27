@@ -1,14 +1,14 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="card">
+    <img :src="{ urlImg }" alt="Image Not Found" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "Card",
   props: {
-    msg: String,
+    urlImg: String,
   },
 };
 </script>

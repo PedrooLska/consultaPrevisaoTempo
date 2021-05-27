@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import "@/style/_global.css";
+import "@/assets/style/_global.css";
 
 Vue.config.productionTip = false;
 
